@@ -34,3 +34,12 @@ This guide summarizes practical checks to audit whether a repository's contribut
 - Raise concerns in project governance channels (maintainer meetings, mailing lists) and propose stronger signing or identity-verification requirements if warranted.
 
 Applying these steps helps differentiate organic contributor bases from manufactured narratives while keeping the audit process rooted in verifiable evidence.
+
+## 8. Auditing a specific GitHub account (e.g., follower networks)
+- **Start with public data only:** Without account access or API tokens, limit checks to what is publicly visible on the profile (followers/following lists, pinned repos, contribution graph, and public gists). Document URLs and timestamps.
+- **Follower/following review:** Export visible followers/following (manual list or API if you control tokens) and look for patterns such as recently created accounts with minimal activity, identical bios, or reused avatars. Tools like `gh api users/<handle>/followers` can assist when authenticated.
+- **Cross-account linkage:** For each suspicious follower, compare email domains (if exposed via commits), linked personal sites, package registry profiles, and reuse of SSH/GPG signing keys across repos.
+- **Repo activity correlation:** Check whether followers star, fork, or comment on the same set of repositories within tight time windows. Repeated synchronized actions can indicate coordinated sockpuppets.
+- **Content reuse signals:** Search for duplicated README text, issue wording, or PR templates across repos followed by the account. Consistent phrasing across many “distinct” users is a common automation tell.
+- **Identity corroboration:** Prefer profiles with conference talks, independent OSS history, or verified social links (e.g., company org membership). Treat empty or AI-generated bios, stock avatars, and no commit history as higher risk.
+- **Limitations and ethics:** Public inspection cannot prove coordination on its own. Avoid attributing identity without cryptographic proof (signed commits/messages). When in doubt, collect evidence (screenshots, links, commit hashes) and escalate concerns through project governance channels rather than public accusations.
